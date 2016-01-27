@@ -80,7 +80,7 @@ int split_and_read(char *line)
 		return 0;
 	}
 	else if(!strcmp(clsfy,"compile")){
-		// do compile , FIXME - "compile" could change to another significant word 
+		// do compile , FIXME - "compile" could change to another significant word  
 		return 5;
 	}
 	else{
@@ -113,16 +113,34 @@ int apply_command(char *line , int cmd)
 	}
 	else if(cmd == 2){
 		// ls , ls disk
-		
+		DIR *d;
+		struct dirent *dir;
+		d = opendir(".");
+		if(d){
+			printf("The current directory's file:\n");
+			while((dir = readdir(d))!=NULL){
+				// read if directory is not empty
+				if(dir -> d_type == DT_REG){
+					// check if it isn't sys file
+					printf("%s ",dir->d_name);
+				}
+			}
+			printf("\n");
+			closedir(d);
+		}
+		return 1;
 	}
 	else if(cmd == 3){
 		// disk 
+		return 1;
 	}
 	else if(cmd == 4){
 		// file
+		return 1;
 	}
 	else if(cmd == 5){
 		// compile
+		return 1;
 	}
 	// FIXME : do the specific , if-else operator
 	else{

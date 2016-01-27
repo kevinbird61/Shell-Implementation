@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <dirent.h>
 #define LINE_BUF 512
 #define CMD_LEN 64
 /*

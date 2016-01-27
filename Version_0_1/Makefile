@@ -1,6 +1,7 @@
 CC = gcc
 OBJS = mysh.o main.o
 EXEC = minshell
+TEMP = mysh.c~ mysh.h~  main.c~ Makefile~
 
 $(EXEC):$(OBJS)
 	gcc -o $(EXEC) $(OBJS)  
@@ -12,4 +13,4 @@ main.o:main.c mysh.h
 run:
 	./$(EXEC)
 clean:
-	rm $(EXEC) $(OBJS) 
+	rm $(EXEC) $(OBJS) $(TEMP)
